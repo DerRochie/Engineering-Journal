@@ -1,6 +1,5 @@
 import sphinx_rtd_theme
 import recommonmark
-import sphinx_search
 # Configuration file for the Sphinx documentation builder.
 #
 # This file only contains a selection of the most common options. For a full
@@ -34,7 +33,6 @@ extensions = [
     'sphinx.ext.autodoc',
     "sphinx_rtd_theme",
     'recommonmark',
-    'sphinx_search.extension',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
