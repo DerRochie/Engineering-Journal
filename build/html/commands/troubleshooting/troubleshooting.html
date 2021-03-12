@@ -13,7 +13,6 @@
   
   <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/css/rtd_sphinx_search.min.css" type="text/css" />
 
   
   
@@ -33,7 +32,6 @@
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
         <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/js/rtd_sphinx_search.min.js"></script>
     
     <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
@@ -111,8 +109,32 @@
 <li class="toctree-l2"><a class="reference internal" href="#show-ip-ospf-database">show ip ospf database</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="#switch-verification-commands">Switch Verification Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#show-interfaces">show interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-flash">show flash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-version">show version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-history">show history</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">show ip interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">show ipv6 interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#show-mac-address-table">show mac-address-table</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../routing/routing.html">Routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/bgp-routing.html">BGP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/eigrp-routing.html">EIGRP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv4.html">DHCPv4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv6.html">DHCPv6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/vlans.html">Configuring VLAN’s on a swtich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/intervlan-routing.html">Configuring Inter-vlan routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/RSRP.html">Configuring Router redundancy with HSRP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html">Access Control Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
 </ul>
 
             
@@ -290,6 +312,90 @@
 <div class="section" id="show-ip-ospf-database">
 <h2>show ip ospf database<a class="headerlink" href="#show-ip-ospf-database" title="Permalink to this headline">¶</a></h2>
 <hr class="docutils" />
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="switch-verification-commands">
+<h1>Switch Verification Commands<a class="headerlink" href="#switch-verification-commands" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="show-interfaces">
+<h2>show interfaces<a class="headerlink" href="#show-interfaces" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display interface status and configuration. Useful for checking for connectivity issues liek exessive noise on the line</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show interfaces [inteface-id]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="show-flash">
+<h2>show flash<a class="headerlink" href="#show-flash" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display information about flash file system.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show flash
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="show-version">
+<h2>show version<a class="headerlink" href="#show-version" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display system hardware and software status.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show version
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="show-history">
+<h2>show history<a class="headerlink" href="#show-history" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display history of command entered.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show history
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>show ip interface<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display IP information about an interface.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show ip interface [interface-id]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>show ipv6 interface<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display IPv6 information about an interface.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show ipv6 interface [interface-id]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="show-mac-address-table">
+<h2>show mac-address-table<a class="headerlink" href="#show-mac-address-table" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>Display the MAC address table.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch# show mac-address-table
+</pre></div>
+</div>
 </div>
 </div>
 

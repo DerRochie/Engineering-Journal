@@ -1,0 +1,345 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Configuring VLAN’s on a swtich &mdash; CCNA Engineering Journal  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configuring Inter-vlan routing" href="intervlan-routing.html" />
+    <link rel="prev" title="DHCPv6" href="../DHCP/dhcpv6.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CCNA Engineering Journal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html#switch-verification-commands">Switch Verification Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/bgp-routing.html">BGP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/eigrp-routing.html">EIGRP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv4.html">DHCPv4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv6.html">DHCPv6</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuring VLAN’s on a swtich</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-vlan-s">Creating VLAN’s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-access-ports">Configuring access ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-trunk-ports">Configuring trunk ports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-trunking-protocol">Dynamic Trunking Protocol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#negotiated-interface-modes">Negotiated Interface Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#access">access</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-auto">dynamic auto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-desirable">dynamic desirable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#trunk">trunk</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuring-voip-vlan">Configuring VOIP VLAN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="intervlan-routing.html">Configuring Inter-vlan routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/RSRP.html">Configuring Router redundancy with HSRP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html">Access Control Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CCNA Engineering Journal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Configuring VLAN’s on a swtich</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/commands/VLANs/vlans.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-vlan-s-on-a-swtich">
+<h1>Configuring VLAN’s on a swtich<a class="headerlink" href="#configuring-vlan-s-on-a-swtich" title="Permalink to this headline">¶</a></h1>
+<p>All VLAN’s are private and their traffic  will not mix with that on other VLAN’s.</p>
+<p>Therefore, VLAN’s can be used to enhance security by deliberately segrigating network traffic.</p>
+<div class="section" id="creating-vlan-s">
+<h2>Creating VLAN’s<a class="headerlink" href="#creating-vlan-s" title="Permalink to this headline">¶</a></h2>
+<p>Vlans Can be created like This</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config)# vlan 100
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="configuring-access-ports">
+<h2>Configuring access ports<a class="headerlink" href="#configuring-access-ports" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config)# interface range f0/1 - 24
+Switch(config-if)# swichport mode access
+Switch(config-if)# switchport access vlan 100
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="configuring-trunk-ports">
+<h2>Configuring trunk ports<a class="headerlink" href="#configuring-trunk-ports" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config)# interface f0/1
+Switch(config-if)#swichport mode trunk
+Switch(config-if)# switchport trunk native vlan vlan-id
+</pre></div>
+</div>
+<p>Use the no switchport trunk allowed vlan and the no switchport trunk native vlan commands to remove the allowed VLANs and reset the native VLAN of the trunk. When it is reset to the default state, the trunk allows all VLANs and uses VLAN 1 as the native VLAN. The example shows the commands used to reset all trunking characteristics of a trunking interface to the default settings.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S1(config-if)# no switchport trunk allowed vlan
+S1(config-if)# no switchport trunk native vlan
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="dynamic-trunking-protocol">
+<h2>Dynamic Trunking Protocol<a class="headerlink" href="#dynamic-trunking-protocol" title="Permalink to this headline">¶</a></h2>
+<p>Some Cisco switches have a proprietary protocol that lets them automatically negotiate trunking with a neighboring device. This protocol is called Dynamic Trunking Protocol (DTP). DTP can speed up the configuration process for a network administrator. Ethernet trunk interfaces support different trunking modes. An interface can be set to trunking or nontrunking, or to negotiate trunking with the neighbor interface. Trunk negotiation is managed by DTP, which operates on a point-to-point basis only, between network devices.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S1(config-if)# switchport mode trunk
+S1(config-if)# switchport nonegotiate
+S1(config-if)# switchport mode dynamic auto
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="negotiated-interface-modes">
+<h2>Negotiated Interface Modes<a class="headerlink" href="#negotiated-interface-modes" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Switch(config-if)# switchport mode { access | dynamic { auto | desirable } | trunk }
+</pre></div>
+</div>
+<div class="section" id="access">
+<h3>access<a class="headerlink" href="#access" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Puts the interface (access port) into permanent nontrunking mode and negotiates to convert the link into a nontrunk link.
+The interface becomes a nontrunk interface, regardless of whether the neighboring interface is a trunk interface.</p>
+</div></blockquote>
+</div>
+<div class="section" id="dynamic-auto">
+<h3>dynamic auto<a class="headerlink" href="#dynamic-auto" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Makes the interface able to convert the link to a trunk link.
+The interface becomes a trunk interface if the neighboring interface is set to trunk or desirable mode.
+The default switchport mode for all Ethernet interfaces is dynamic auto.</p>
+</div></blockquote>
+</div>
+<div class="section" id="dynamic-desirable">
+<h3>dynamic desirable<a class="headerlink" href="#dynamic-desirable" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Makes the interface actively attempt to convert the link to a trunk link.
+The interface becomes a trunk interface if the neighboring interface is set to trunk, desirable, or dynamic auto mode.</p>
+</div></blockquote>
+</div>
+<div class="section" id="trunk">
+<h3>trunk<a class="headerlink" href="#trunk" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Puts the interface into permanent trunking mode and negotiates to convert the neighboring link into a trunk link.
+The interface becomes a trunk interface even if the neighboring interface is not a trunk interface.</p>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuring-voip-vlan">
+<h2>Configuring VOIP VLAN<a class="headerlink" href="#configuring-voip-vlan" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>S3(config)# vlan 20
+S3(config-vlan)# name student
+S3(config-vlan)# vlan 150
+S3(config-vlan)# name VOICE
+S3(config-vlan)# exit
+S3(config)# interface fa0/18
+S3(config-if)# switchport mode access
+S3(config-if)# switchport access vlan 20
+S3(config-if)# mls qos trust cos
+S3(config-if)# switchport voice vlan 150
+S3(config-if)# end
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="intervlan-routing.html" class="btn btn-neutral float-right" title="Configuring Inter-vlan routing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../DHCP/dhcpv6.html" class="btn btn-neutral float-left" title="DHCPv6" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, John Rochester.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

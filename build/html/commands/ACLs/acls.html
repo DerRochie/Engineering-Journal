@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Access Control Lists &mdash; CCNA Engineering Journal  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Configuring Switch redundancy with Etherchannel" href="../redundancy/etherchannel.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CCNA Engineering Journal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html#switch-verification-commands">Switch Verification Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/bgp-routing.html">BGP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/eigrp-routing.html">EIGRP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv4.html">DHCPv4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv6.html">DHCPv6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/vlans.html">Configuring VLAN’s on a swtich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/intervlan-routing.html">Configuring Inter-vlan routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/RSRP.html">Configuring Router redundancy with HSRP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Access Control Lists</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#standard">Standard</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extended">Extended</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CCNA Engineering Journal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Access Control Lists</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/commands/ACLs/acls.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="access-control-lists">
+<h1>Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="standard">
+<h2>Standard<a class="headerlink" href="#standard" title="Permalink to this headline">¶</a></h2>
+<p>Standard ACL’s have a id number of 1-99</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# access-list 1 deny [destination-address] [wildcard-mask]
+router(config)# access-list 1 permit any
+router(config)# interface [interface]
+router(config-if)# ip access-group 1 [out/in]
+</pre></div>
+</div>
+</div>
+<div class="section" id="extended">
+<h2>Extended<a class="headerlink" href="#extended" title="Permalink to this headline">¶</a></h2>
+<p>Extended ACL’s have a id number of 100-199 and are more precise with what is filtered - right down to the protocl level</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)#  access-list 101 deny icmp &lt;[desination-address] [wildcard mask] | any&gt; &lt;[source-address] [wildcard mask] | any&gt;
+router(config)#  access-list 101 deny icmp 192.168.20.0 0.0.0.255 any
+router(config)#  access-list 101 deny icmp 192.168.30.0 0.0.0.255 any
+router(config)#  access-list 101 permit ip any any
+</pre></div>
+</div>
+<p>Then apply the access list to an interface with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# interface [interface]
+router(config-if)# ip access-group 1 [out/in]
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</div>
+</div>
+<div class="section" id="network-address-translation-nat-with-port-address-translation-pat">
+<h1>Network Address Translation(NAT) with Port Address Translation(PAT)<a class="headerlink" href="#network-address-translation-nat-with-port-address-translation-pat" title="Permalink to this headline">¶</a></h1>
+<p>NAT allows a private inside address to hide behind a public one and PAT takes this a stage further by attaching port numbers to conversations meaning that many private inside addresses can hide behind a single public address.  NAT can be implemented either dynamically if it’s operating from inside-to-out or statically from outside-to-in for server access.</p>
+<p>In a situation were we have two networks with a server and a host on each connected via a WAN connection. NAT/PAT is setup like this</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# ip nat inside source static [private-ip-address] [nat-address]
+router(config)# access-list 1 permit any
+router(config)# ip nat inside source list 1 interface g0/0 overload
+</pre></div>
+</div>
+<p>Then on the edge router, on the interface facing the internet, use the following command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# interface [interface name]
+router(config-if)# ip nat outside
+</pre></div>
+</div>
+<p>Then configure internal interfaces as so - including virtual interfaces.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# interface [interface name]
+router(config-if)# ip nat inside
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../redundancy/etherchannel.html" class="btn btn-neutral float-left" title="Configuring Switch redundancy with Etherchannel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, John Rochester.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

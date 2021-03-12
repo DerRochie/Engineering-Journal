@@ -1,0 +1,260 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>DHCPv6 &mdash; CCNA Engineering Journal  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configuring VLAN’s on a swtich" href="../VLANs/vlans.html" />
+    <link rel="prev" title="DHCPv4" href="dhcpv4.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CCNA Engineering Journal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html#switch-verification-commands">Switch Verification Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/bgp-routing.html">BGP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/eigrp-routing.html">EIGRP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dhcpv4.html">DHCPv4</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">DHCPv6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enable-stateless-dhcpv6-on-an-interface">Enable Stateless DHCPv6 on an Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#enable-stateful-dhcpv6-on-an-interface">Enable Stateful DHCPv6 on an Interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/vlans.html">Configuring VLAN’s on a swtich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/intervlan-routing.html">Configuring Inter-vlan routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/RSRP.html">Configuring Router redundancy with HSRP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html">Access Control Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CCNA Engineering Journal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>DHCPv6</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/commands/DHCP/dhcpv6.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dhcpv6">
+<h1>DHCPv6<a class="headerlink" href="#dhcpv6" title="Permalink to this headline">¶</a></h1>
+<p>Server to client DHCPv6 messages use UDP destination port 546 while client to server DHCPv6 messages use UDP destination port 547.</p>
+<p>Steps for DHCPv6 operations:</p>
+<ol class="arabic simple">
+<li><p>The client sends an RS (Router Solicitation) message to all IPv6-enabled routers.</p></li>
+<li><p>The router receives the RS and responds with an RA indicating that the client is to initiate communication with a DHCPv6 server.</p></li>
+<li><p>The client, now a DHCPv6 client, needs to locate a DHCPv6 server and sends a DHCPv6 SOLICIT message to the reserved IPv6 multicast all-DHCPv6-servers address of ff02::1:2. This multicast address has link-local scope, which means routers do not forward the messages to other networks.</p></li>
+<li><p>One or more DHCPv6 servers respond with a DHCPv6 ADVERTISE unicast message. The ADVERTISE message informs the DHCPv6 client that the server is available for DHCPv6 service.</p></li>
+<li><dl class="simple">
+<dt>The host responds to the DHCPv6 server.</dt><dd><ul class="simple">
+<li><p>Stateless DHCPv6 client - The client creates an IPv6 address using the prefix in the RA message and a self-generated Interface ID. The client then sends a DHCPv6 INFORMATION-REQUEST message to the DHCPv6 server requesting additional configuration parameters (e.g., DNS server address).</p></li>
+<li><p>Stateful DHCPv6 client - The client sends a DHCPv6 REQUEST message to the DHCPv6 server to obtain all necessary IPv6 configuration parameters.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>The server sends a DHCPv6 REPLY unicast message to the client. The content of the message varies depending on if it is replying to a REQUEST or INFORMATION-REQUEST message. (Note: The client will use the source IPv6 Link-local address of the RA as its default gateway address. A DHCPv6 server does not provide this information.)</p></li>
+</ol>
+<div class="section" id="enable-stateless-dhcpv6-on-an-interface">
+<h2>Enable Stateless DHCPv6 on an Interface<a class="headerlink" href="#enable-stateless-dhcpv6-on-an-interface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config-if)# ipv6 nd other-config-flag
+</pre></div>
+</div>
+</div>
+<div class="section" id="enable-stateful-dhcpv6-on-an-interface">
+<h2>Enable Stateful DHCPv6 on an Interface<a class="headerlink" href="#enable-stateful-dhcpv6-on-an-interface" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config-if)# ipv6 nd managed-config-flag
+R1(config-if)# ipv6 nd prefix default no-autoconfig
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../VLANs/vlans.html" class="btn btn-neutral float-right" title="Configuring VLAN’s on a swtich" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dhcpv4.html" class="btn btn-neutral float-left" title="DHCPv4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, John Rochester.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

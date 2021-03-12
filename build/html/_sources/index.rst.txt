@@ -15,5 +15,12 @@ Welcome to my CCNA Engineering Journal! Here I will be documenting relevant comm
 
    commands/troubleshooting/troubleshooting
    commands/simple/simple
-   commands/routing/routing   
+   commands/routing/*
+   commands/switching/*
+   commands/routes/* 
+   commands/DHCP/*
+   commands/VLANs/vlans
+   commands/VLANs/intervlan-routing
+   commands/redundancy/*
+   commands/ACLs/*
 

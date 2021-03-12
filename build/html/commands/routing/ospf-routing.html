@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>OSPF Routing Protocol &mdash; CCNA Engineering Journal  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Point To Point Protocol" href="point-to-point-protocol.html" />
+    <link rel="prev" title="EIGRP Routing Protocol" href="eigrp-routing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> CCNA Engineering Journal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html#switch-verification-commands">Switch Verification Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bgp-routing.html">BGP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eigrp-routing.html">EIGRP Routing Protocol</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">OSPF Routing Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ospfv2">OSPFv2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#single-area-ospf">Single Area OSPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static-and-default-routes">Static and Default Routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ospf-authentication">OSPF Authentication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ospfv3">OSPFv3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="point-to-point-protocol.html">Point To Point Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv4.html">DHCPv4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv6.html">DHCPv6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/vlans.html">Configuring VLAN’s on a swtich</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VLANs/intervlan-routing.html">Configuring Inter-vlan routing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/RSRP.html">Configuring Router redundancy with HSRP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html">Access Control Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">CCNA Engineering Journal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>OSPF Routing Protocol</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/commands/routing/ospf-routing.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ospf-routing-protocol">
+<h1>OSPF Routing Protocol<a class="headerlink" href="#ospf-routing-protocol" title="Permalink to this headline">¶</a></h1>
+<p>OSPF (Open Shortest Path First) is a routing protocol used to allow internetwork communication between two or more routers.</p>
+<div class="section" id="ospfv2">
+<h2>OSPFv2<a class="headerlink" href="#ospfv2" title="Permalink to this headline">¶</a></h2>
+<p>OSPFv2 is the IPv4 version of the OSPF routing protocol and is configured as followed.</p>
+<div class="section" id="single-area-ospf">
+<h3>Single Area OSPF<a class="headerlink" href="#single-area-ospf" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# router ospf 1
+router(config-router)# network [network-id] [wildcard mask] area [ospf-area-number]
+</pre></div>
+</div>
+<p>Remember to add all adjacent networks using the <cite>network [network-id] [wildcard mask] area [ospf-area-number]</cite> command.</p>
+</div>
+<div class="section" id="static-and-default-routes">
+<h3>Static and Default Routes<a class="headerlink" href="#static-and-default-routes" title="Permalink to this headline">¶</a></h3>
+<p>If there are default or static routes that need to be advertised use this command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## For default routes
+router(config-router)# default-information originate
+
+## For static Routes
+router(config-router)# redistribute static
+or
+router(config-router)# redistribute static subnets
+</pre></div>
+</div>
+<p>First, log onto the router and enter global configuration mode</p>
+</div>
+<div class="section" id="ospf-authentication">
+<h3>OSPF Authentication<a class="headerlink" href="#ospf-authentication" title="Permalink to this headline">¶</a></h3>
+<p>OSPF can be configured to authenticate every OSPF message. This is usually done to prevent a rogue router from injecting false routing information and therefore causing a Denial-of-Service attack.</p>
+<dl class="simple">
+<dt>Two types of authentication can be used:</dt><dd><ol class="arabic simple">
+<li><p>clear text authentication – clear text passwords are used</p></li>
+<li><p>MD5 authentication – MD5 authentication is used. This type of authentication is more secure because the password doesn’t go in clear-text over the network.</p></li>
+</ol>
+</dd>
+</dl>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>R1(config)# router ospf 1
+R1(config-router)# area 0 authentication message-digest
+R1(config-router)# exit
+R1(config)# int [interface]
+R1(config-if)# ip ospf message-digest-key 1 md5 [password]
+
+R2(config)# router ospf 1
+R2(config-router)# area 0 authentication message-digest
+R2(config-router)# exit
+R2(config)# int [interface]
+R2(config-if)# ip ospf message-digest-key 1 md5 [password]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ospfv3">
+<h2>OSPFv3<a class="headerlink" href="#ospfv3" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="point-to-point-protocol.html" class="btn btn-neutral float-right" title="Point To Point Protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="eigrp-routing.html" class="btn btn-neutral float-left" title="EIGRP Routing Protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, John Rochester.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

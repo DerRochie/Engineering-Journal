@@ -109,3 +109,85 @@ show cdp neighbor
 show ip ospf database
 ---------------------
 ---------------------
+
+|
+|
+Switch Verification Commands
+============================
+
+|
+show interfaces
+---------------
+---------------
+
+Display interface status and configuration. Useful for checking for connectivity issues liek exessive noise on the line
+
+.. code-block :: none
+
+   switch# show interfaces [inteface-id]
+
+|
+show flash
+----------
+----------
+
+Display information about flash file system.
+
+.. code-block :: none
+
+   switch# show flash
+
+|
+show version
+------------
+------------
+
+Display system hardware and software status.
+
+.. code-block :: none
+
+   switch# show version
+
+|
+show history
+------------
+------------
+
+Display history of command entered.
+
+.. code-block :: none
+
+   switch# show history
+
+|
+show ip interface
+-----------------
+-----------------
+
+Display IP information about an interface.
+
+.. code-block :: none
+
+   switch# show ip interface [interface-id]
+
+|
+show ipv6 interface
+-------------------
+-------------------
+
+Display IPv6 information about an interface.
+
+.. code-block :: none
+
+   switch# show ipv6 interface [interface-id]
+
+|
+show mac-address-table
+----------------------
+----------------------
+
+Display the MAC address table.
+
+.. code-block :: none
+
+   switch# show mac-address-table
