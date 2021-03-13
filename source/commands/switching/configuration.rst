@@ -26,8 +26,18 @@ Since VLAN's are isolated and cannot communicate with eachother, trunk ports are
 
 
 
-security
+Security
 --------
+
+Security is important in the networking world and this is how you configure a password on your switches to disallow access to people without a password.
+
+In this example you will enable ssh on a switch for 5 users (line vty 0 4 means that there can be a total of 5 active ssh sessions) and sets the password to password.
+
+.. code-block ::
+
+        switch(config)# line vty 0 4
+        switch(config-line)# password password
+        switch(config-line)# login
 
 
 auto-MDIX
