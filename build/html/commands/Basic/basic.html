@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Switch configuration &mdash; CCNA Engineering Journal  documentation</title>
+  <title>Configuring Virtual interfaces &mdash; CCNA Engineering Journal  documentation</title>
   
 
   
@@ -37,9 +37,7 @@
 
     
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Static and Default Routes" href="../routes/routes.html" />
-    <link rel="prev" title="RIP Routing Protocol" href="../routing/rip-routing.html" /> 
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,7 +83,7 @@
             
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html#switch-verification-commands">Switch Verification Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
@@ -94,15 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Switch configuration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configuring-vlans">Configuring VLANs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#configuring-trunk-ports">Configuring Trunk ports</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#security">Security</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#auto-mdix">auto-MDIX</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv4.html">DHCPv4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv6.html">DHCPv6</a></li>
@@ -160,13 +150,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Switch configuration</li>
+      <li>Configuring Virtual interfaces</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/commands/switching/configuration.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/commands/Basic/basic.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -179,42 +169,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="switch-configuration">
-<h1>Switch configuration<a class="headerlink" href="#switch-configuration" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="configuring-vlans">
-<h2>Configuring VLANs<a class="headerlink" href="#configuring-vlans" title="Permalink to this headline">¶</a></h2>
-<p>Configuring VLAN’s on a switch is easy and allows you to segment your network for better throughput, lower latency and better security.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1"># int g0/0</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1"># switchport mode access</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1"># switchport access vlan 1</span>
+  <div class="section" id="configuring-virtual-interfaces">
+<h1>Configuring Virtual interfaces<a class="headerlink" href="#configuring-virtual-interfaces" title="Permalink to this headline">¶</a></h1>
+<p>Virtual interfaces are a great way to connect trunk ports to a single interface of a router.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">router</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1"># int g0/0.10</span>
+<span class="n">router</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1"># encapsulation dot1q 10</span>
+<span class="n">router</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1"># ip address 192.168.1.1 255.255.255.0</span>
 </pre></div>
-</div>
-</div>
-<div class="section" id="configuring-trunk-ports">
-<h2>Configuring Trunk ports<a class="headerlink" href="#configuring-trunk-ports" title="Permalink to this headline">¶</a></h2>
-<p>Since VLAN’s are isolated and cannot communicate with eachother, trunk ports are used to allow data from multiple VLAN’s across an interface and can be set up like so.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1"># int g0/0</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="k">if</span><span class="p">)</span><span class="c1"># switchport mode trunk</span>
-</pre></div>
-</div>
-<div class="section" id="security">
-<h3>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h3>
-<p>Security is important in the networking world and this is how you configure a password on your switches to disallow access to people without a password. Many types of authentication can be performed on networking devices, and each method offers varying levels of security. The simplest method of remote access authentication is to configure a login and password combination on console, vty lines, and aux ports, as shown in the vty lines in the following example. This method is the easiest to implement, but it is also the weakest and least secure. This method provides no accountability and the password is sent in plaintext. Anyone with the password can gain entry to the device.</p>
-<p>In this example you will enable ssh on a switch for 5 users (line vty 0 4 means that there can be a total of 5 active ssh sessions) and sets the password to password.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1"># line vty 0 4</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">line</span><span class="p">)</span><span class="c1"># password password</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">line</span><span class="p">)</span><span class="c1"># login</span>
-</pre></div>
-</div>
-<p>SSH is a more secure form of remote access:</p>
-<p>. It requires a username and a password, both of which are encrypted during transmission.
-. The username and password can be authenticated by the local database method.
-. It provides more accountability because the username is recorded when a user logs in.</p>
-</div>
-<div class="section" id="auto-mdix">
-<h3>auto-MDIX<a class="headerlink" href="#auto-mdix" title="Permalink to this headline">¶</a></h3>
-<p>Enables audo-MDIX. With auto-MDIX enabled, either type of cable can be used to connect to other devices, and the interface automatically adjusts to communicate successfully.</p>
-</div>
 </div>
 </div>
 
@@ -223,10 +184,6 @@
            
           </div>
           <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../routes/routes.html" class="btn btn-neutral float-right" title="Static and Default Routes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../routing/rip-routing.html" class="btn btn-neutral float-left" title="RIP Routing Protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
 
   <hr/>
 
