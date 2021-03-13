@@ -10,9 +10,13 @@ Configuring Switch redundancy with Etherchannel
 Etherchannel Protocols
 ----------------------
 
+Etherchannel protocols are 
 
 LACP
 ^^^^
+
+LACP is a standardised etherchannel protocol
+
 
 .. image:: /images/redundancy/LACP_modes.png
    :width: 500
