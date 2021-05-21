@@ -23,4 +23,5 @@ Welcome to my CCNA Engineering Journal! Here I will be documenting relevant comm
    commands/VLANs/intervlan-routing
    commands/redundancy/*
    commands/ACLs/*
+   commands/VPN/*
 

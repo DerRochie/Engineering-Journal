@@ -31,19 +31,23 @@ Security
 
 Security is important in the networking world and this is how you configure a password on your switches to disallow access to people without a password. Many types of authentication can be performed on networking devices, and each method offers varying levels of security. The simplest method of remote access authentication is to configure a login and password combination on console, vty lines, and aux ports, as shown in the vty lines in the following example. This method is the easiest to implement, but it is also the weakest and least secure. This method provides no accountability and the password is sent in plaintext. Anyone with the password can gain entry to the device.
 
-In this example you will enable ssh on a switch for 5 users (line vty 0 4 means that there can be a total of 5 active ssh sessions) and sets the password to password.
-
-.. code-block ::
-
-        switch(config)# line vty 0 4
-        switch(config-line)# password password
-        switch(config-line)# login
-
 SSH is a more secure form of remote access:
 
 . It requires a username and a password, both of which are encrypted during transmission.
 . The username and password can be authenticated by the local database method.
 . It provides more accountability because the username is recorded when a user logs in.
+
+The following example illustrates SSH and local database methods of remote access.
+
+.. code-block :: none
+
+        switch(config)# ip domain-name example.com
+        switch(config)# crypto key generate rsa general-keys modulus 2048
+        switch(config)# username Admin secret Str0ng3rPa55w0rd
+        switch(config)# ssh version 2
+        switch(config)# line vty 0 4
+        switch(config-line)# transport input ssh
+        switch(config-line)# login local
 
 
 auto-MDIX

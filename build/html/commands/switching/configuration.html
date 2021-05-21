@@ -39,7 +39,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Static and Default Routes" href="../routes/routes.html" />
-    <link rel="prev" title="RIP Routing Protocol" href="../routing/rip-routing.html" /> 
+    <link rel="prev" title="Routing security" href="../routing/security.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,6 +94,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/security.html">Routing security</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Switch configuration</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#configuring-vlans">Configuring VLANs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#configuring-trunk-ports">Configuring Trunk ports</a><ul>
@@ -112,6 +113,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html">Access Control Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../VPN/GRE.html">VPN configuration</a></li>
 </ul>
 
             
@@ -200,16 +202,20 @@
 <div class="section" id="security">
 <h3>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h3>
 <p>Security is important in the networking world and this is how you configure a password on your switches to disallow access to people without a password. Many types of authentication can be performed on networking devices, and each method offers varying levels of security. The simplest method of remote access authentication is to configure a login and password combination on console, vty lines, and aux ports, as shown in the vty lines in the following example. This method is the easiest to implement, but it is also the weakest and least secure. This method provides no accountability and the password is sent in plaintext. Anyone with the password can gain entry to the device.</p>
-<p>In this example you will enable ssh on a switch for 5 users (line vty 0 4 means that there can be a total of 5 active ssh sessions) and sets the password to password.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="p">)</span><span class="c1"># line vty 0 4</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">line</span><span class="p">)</span><span class="c1"># password password</span>
-<span class="n">switch</span><span class="p">(</span><span class="n">config</span><span class="o">-</span><span class="n">line</span><span class="p">)</span><span class="c1"># login</span>
-</pre></div>
-</div>
 <p>SSH is a more secure form of remote access:</p>
 <p>. It requires a username and a password, both of which are encrypted during transmission.
 . The username and password can be authenticated by the local database method.
 . It provides more accountability because the username is recorded when a user logs in.</p>
+<p>The following example illustrates SSH and local database methods of remote access.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>switch(config)# ip domain-name example.com
+switch(config)# crypto key generate rsa general-keys modulus 2048
+switch(config)# username Admin secret Str0ng3rPa55w0rd
+switch(config)# ssh version 2
+switch(config)# line vty 0 4
+switch(config-line)# transport input ssh
+switch(config-line)# login local
+</pre></div>
+</div>
 </div>
 <div class="section" id="auto-mdix">
 <h3>auto-MDIX<a class="headerlink" href="#auto-mdix" title="Permalink to this headline">¶</a></h3>
@@ -225,7 +231,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../routes/routes.html" class="btn btn-neutral float-right" title="Static and Default Routes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../routing/rip-routing.html" class="btn btn-neutral float-left" title="RIP Routing Protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../routing/security.html" class="btn btn-neutral float-left" title="Routing security" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

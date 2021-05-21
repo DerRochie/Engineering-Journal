@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>EIGRP Routing Protocol &mdash; CCNA Engineering Journal  documentation</title>
+  <title>VPN configuration &mdash; CCNA Engineering Journal  documentation</title>
   
 
   
@@ -38,8 +38,7 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="OSPF Routing Protocol" href="ospf-routing.html" />
-    <link rel="prev" title="BGP Routing Protocol" href="bgp-routing.html" /> 
+    <link rel="prev" title="Access Control Lists" href="../ACLs/acls.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,16 +88,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html">Troubleshooting Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/troubleshooting.html#switch-verification-commands">Switch Verification Commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../simple/simple.html">Simple Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bgp-routing.html">BGP Routing Protocol</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">EIGRP Routing Protocol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#eigrp-ipv4">EIGRP-IPv4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#eigrp-ipv6">EIGRP-IPv6</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ospf-routing.html">OSPF Routing Protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="point-to-point-protocol.html">Point To Point Protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rip-routing.html">RIP Routing Protocol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="security.html">Routing security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/bgp-routing.html">BGP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/eigrp-routing.html">EIGRP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/ospf-routing.html">OSPF Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/point-to-point-protocol.html">Point To Point Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/rip-routing.html">RIP Routing Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../routing/security.html">Routing security</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../switching/configuration.html">Switch configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../routes/routes.html">Static and Default Routes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../DHCP/dhcpv4.html">DHCPv4</a></li>
@@ -109,7 +104,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../redundancy/etherchannel.html">Configuring Switch redundancy with Etherchannel</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html">Access Control Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ACLs/acls.html#network-address-translation-nat-with-port-address-translation-pat">Network Address Translation(NAT) with Port Address Translation(PAT)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../VPN/GRE.html">VPN configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VPN configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is">What is?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-gre-tunnel">Setting up GRE Tunnel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-vpn">Setting up VPN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
             
@@ -158,13 +162,13 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>EIGRP Routing Protocol</li>
+      <li>VPN configuration</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/commands/routing/eigrp-routing.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/commands/VPN/GRE.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -177,22 +181,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="eigrp-routing-protocol">
-<h1>EIGRP Routing Protocol<a class="headerlink" href="#eigrp-routing-protocol" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<p>EIGRP (Enhanced Interior Gateway Routing Protocol)</p>
-<div class="section" id="eigrp-ipv4">
-<h2>EIGRP-IPv4<a class="headerlink" href="#eigrp-ipv4" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Router<span class="o">(</span>config<span class="o">)</span> router eigrp <span class="o">[</span>area number<span class="o">]</span>
-Router<span class="o">(</span>config<span class="o">)</span> network <span class="o">[</span>network<span class="o">]</span>
-
-<span class="c1"># Optional - use if there are multiple subnets of the network on the same network</span>
-Router<span class="o">(</span>config<span class="o">)</span> no auto-summary
+  <div class="section" id="vpn-configuration">
+<h1>VPN configuration<a class="headerlink" href="#vpn-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is">
+<h2>What is?<a class="headerlink" href="#what-is" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>For this example image you have two autonomous system’s running EIGRP ()</p>
+<div class="section" id="setting-up-gre-tunnel">
+<h3>Setting up GRE Tunnel<a class="headerlink" href="#setting-up-gre-tunnel" title="Permalink to this headline">¶</a></h3>
+<p>Setting up GRE Tunnel</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# interface tunnel 0
+router(config-if)# ip address [ip address] [subnet mask]
+router(config-if)# tunnel source g0/1
+router(config-if)# tunnel destination [Device 2 edge interface]
+router(config-if)# exit
+router(config)# access-list 101 permit gre host [device ip] host [destination ip]
+</pre></div>
+</div>
+<p>After this advertise the gre tunnel in your routing protocol. This could be RIP, OSPF, BGP or EIGRP.</p>
+<p>Repeat these two steps for each device then test connectivity between them</p>
+</div>
+<div class="section" id="setting-up-vpn">
+<h3>Setting up VPN<a class="headerlink" href="#setting-up-vpn" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>router(config)# crypto isakmp enable
+router(config)# crypto isakmp policy 1
+router(config)# authentication pre-share
+router(config)# encryption des
+router(config)# hash md5
+router(config)# group 1
+router(config)# lifetime
+router(config)# exit
+router(config)# crypto isakmp key [pre-shared key] address [ip of network]
+router(config)# crypto ipsec transform-set [transform set name] esp-3des esp-sha-hmac
+router(config)# crypto map [crypto map name] 1 ipsec-isakmp
+router(config)# match address [access list number]
+router(config)# set peer [ip of external network edge router]
+router(config)# set transform-set [transfrom set name]
+router(config)# set pfs group2
+router(config)# set security-association lifetime seconds 44000
+router(config)# exit
 </pre></div>
 </div>
 </div>
-<div class="section" id="eigrp-ipv6">
-<h2>EIGRP-IPv6<a class="headerlink" href="#eigrp-ipv6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>show crypto isakmp sa
+show crypto ipsec sa
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -202,8 +241,7 @@ Router<span class="o">(</span>config<span class="o">)</span> no auto-summary
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ospf-routing.html" class="btn btn-neutral float-right" title="OSPF Routing Protocol" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="bgp-routing.html" class="btn btn-neutral float-left" title="BGP Routing Protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ACLs/acls.html" class="btn btn-neutral float-left" title="Access Control Lists" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
